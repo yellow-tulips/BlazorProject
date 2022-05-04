@@ -1,0 +1,28 @@
+@page "/Spinner"
+
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Spinner
+
+<SfButton @onclick="@ClickHandler">Show/Hide Spinner</SfButton>
+
+<div id="container">
+    <SfSpinner @bind-Visible="@VisibleProperty" CssClass="e-spin-overlay" />
+</div>
+
+<style>
+    #container {
+        position: relative;
+        height: 450px;
+    }
+</style>
+
+@code{
+    private bool VisibleProperty { get; set; } = false;
+
+    private async Task ClickHandler()
+    {
+        this.VisibleProperty = true;
+        await Task.Delay(10000);
+        this.VisibleProperty = false;
+    }
+}
